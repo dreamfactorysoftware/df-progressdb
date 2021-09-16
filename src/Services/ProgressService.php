@@ -14,7 +14,7 @@ class ProgressService extends SqlDb
 {
     public static function adaptConfig(array &$config)
     {
-        $config['driver'] = 'odbc';
+        $config['driver'] = 'progress';
         $driverPath = env('PROGRESS_ODBC_DRIVER_PATH', '/usr/dlc/odbc/lib/pgoe27.so');
         if (isset($config['options']['driver_path'])) {
             $driverPath = $config['options']['driver_path'];
@@ -31,7 +31,7 @@ class ProgressService extends SqlDb
     public function getApiDocInfo()
     {
         $base = parent::getApiDocInfo();
-        $paths = (array)array_get($base, 'paths');
+        /*$paths = (array)array_get($base, 'paths');
         foreach ($paths as $path_key => $path) {
             if (strpos($path_key, '_schema') !== false) {
                 unset($paths[$path_key]);
@@ -40,7 +40,7 @@ class ProgressService extends SqlDb
 
             $paths[$path_key] = $this->removeNotGetPaths($path);
         }
-        $base['paths'] = $paths;
+        $base['paths'] = $paths;*/
         return $base;
     }
 
