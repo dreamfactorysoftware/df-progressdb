@@ -4,13 +4,14 @@ namespace DreamFactory\Core\Progress;
 use DreamFactory\Core\Compliance\Handlers\Events\EventHandler;
 use DreamFactory\Core\Hadoop\Database\ODBCConnection;
 use DreamFactory\Core\Hadoop\Database\ODBCConnector;
+use DreamFactory\Core\Progress\Database\Schema\ProgressSchema;
 use DreamFactory\Core\Progress\Http\Middleware\ExampleMiddleware;
 use DreamFactory\Core\Progress\Models\ProgressConfig;
 use DreamFactory\Core\Services\ServiceManager;
 use DreamFactory\Core\Services\ServiceType;
 use DreamFactory\Core\Enums\ServiceTypeGroups;
 use DreamFactory\Core\Enums\LicenseLevel;
-use DreamFactory\Core\Progress\Services\ExampleService;
+use DreamFactory\Core\Progress\Services\ProgressService;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Routing\Router;
 
@@ -35,6 +36,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->app->resolving('db.schema', function ($db) {
             /** @var DatabaseManager $db */
             $db->extend('progress', function ($connection) {
+                dd('hi');
                 return new ProgressSchema($connection);
             });
         });
