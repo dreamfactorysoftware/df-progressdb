@@ -32,7 +32,7 @@
   ],
   "require":     {
     "dreamfactory/df-core":   "~0.25",
-    "dreamfactory/df-system": "~0.5",
+    "dreamfactory/df-system": "~0.6",
     "dreamfactory/df-sqldb": "~0.17",
     "dreamfactory/df-hadoop": "~0.0"
   },
